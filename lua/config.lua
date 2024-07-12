@@ -83,3 +83,10 @@ cmp.setup {
     { name = 'luasnip' },
   }),
 }
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  callback = function()
+    require("lint").try_lint("pylint")
+    require("lint").try_lint("flake8")
+  end,
+})
