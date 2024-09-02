@@ -163,3 +163,7 @@ vim.g.rainbow_delimiters = {
         'RainbowDelimiterCyan',
     },
 }
+
+
+-- Coments
+require('nvim_comment').setup({comment_empty = false})

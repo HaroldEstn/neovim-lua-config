@@ -29,5 +29,6 @@ return {
   {'saadparwaiz1/cmp_luasnip'},  -- Snippets source for nvim-cmp
   {'L3MON4D3/LuaSnip'},
   {'mfussenegger/nvim-lint'},
-  {'nvim-treesitter/nvim-treesitter'}
+  {'nvim-treesitter/nvim-treesitter'},
+  {'terrortylor/nvim-comment'} -- Coments
 }
