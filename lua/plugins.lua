@@ -30,5 +30,23 @@ return {
   {'L3MON4D3/LuaSnip'},
   {'mfussenegger/nvim-lint'},
   {'nvim-treesitter/nvim-treesitter'},
-  {'terrortylor/nvim-comment'} -- Coments
+  {'numToStr/Comment.nvim'}, -- Comments
+  {
+    'williamboman/mason.nvim',
+    build = ':MasonUpdate'
+  },
+  {
+    'williamboman/mason-lspconfig.nvim',
+    dependencies = { 'mason.nvim' }
+  },
+  {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.x',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+  {
+    'stevearc/conform.nvim',
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+  }
 }
