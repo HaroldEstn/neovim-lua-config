@@ -18,12 +18,14 @@ Una configuración moderna, segura y estable de Neovim con Lua, optimizada para 
 ## 📦 Plugins Principales
 
 ### Interfaz
+
 - `nvim-tree/nvim-tree.lua` - Explorador de archivos
 - `akinsho/bufferline.nvim` - Barra de buffers
 - `nvim-lualine/lualine.nvim` - Barra de estado
 - `navarasu/onedark.nvim` - Tema OneDark
 
 ### LSP y Autocompletado
+
 - `neovim/nvim-lspconfig` - Configuración de LSP
 - `williamboman/mason.nvim` - Gestor de LSP servers
 - `williamboman/mason-lspconfig.nvim` - Integración Mason + LSP
@@ -32,6 +34,7 @@ Una configuración moderna, segura y estable de Neovim con Lua, optimizada para 
 - `L3MON4D3/LuaSnip` - Motor de snippets
 
 ### Herramientas
+
 - `nvim-telescope/telescope.nvim` - Búsqueda fuzzy
 - `stevearc/conform.nvim` - Formateo de código
 - `mfussenegger/nvim-lint` - Linting
@@ -42,6 +45,7 @@ Una configuración moderna, segura y estable de Neovim con Lua, optimizada para 
 ## 🚀 Instalación
 
 ### Requisitos
+
 - Neovim >= 0.9
 - Git
 - Node.js (para algunos LSP servers)
@@ -50,36 +54,43 @@ Una configuración moderna, segura y estable de Neovim con Lua, optimizada para 
 ### Pasos
 
 1. **Clonar la configuración**
+
 ```bash
 git clone https://github.com/HaroldEstn/neovim-lua-config.git ~/.config/nvim
 ```
 
 2. **Instalar plugins**
-Abre Neovim y ejecuta:
+   Abre Neovim y ejecuta:
+
 ```vim
 :Lazy sync
 ```
 
 3. **Instalar LSP servers**
+
 ```vim
 :Mason
 ```
+
 Selecciona e instala los servidores que necesites (pyright, lua_ls, etc.)
 
 ## ⌨️ Atajos de Teclado
 
 ### Navegación
+
 - `<C-t>` - Toggle explorador de archivos (NvimTree)
 - `<A-1>` a `<A-9>` - Cambiar entre buffers
 - `<A-0>` - Ir al buffer 10
 
 ### Búsqueda (Telescope)
+
 - `<leader>ff` - Buscar archivos
 - `<leader>fg` - Buscar texto (live grep)
 - `<leader>fb` - Buscar buffers
 - `<leader>fh` - Buscar en help
 
 ### LSP
+
 - `gd` - Ir a definición
 - `gD` - Ir a declaración
 - `gi` - Ir a implementación
@@ -91,16 +102,19 @@ Selecciona e instala los servidores que necesites (pyright, lua_ls, etc.)
 - `<leader>f` - Formatear
 
 ### Comentarios
+
 - `gcc` - Comentar línea
 - `gbc` - Comentar bloque
 - `gc` - Comentar en modo visual
 
 ### Formateo
+
 - `<leader>fm` - Formatear archivo
 
 ## 🔧 Configuración
 
 ### Estructura de Archivos
+
 ```
 ~/.config/nvim/
 ├── init.lua              # Punto de entrada
@@ -120,7 +134,9 @@ Selecciona e instala los servidores que necesites (pyright, lua_ls, etc.)
 ### Personalización
 
 #### Agregar un nuevo LSP server
+
 En `lua/lsp.lua`, agrega el servidor a la lista `ensure_installed`:
+
 ```lua
 mason_lspconfig.setup({
   ensure_installed = { "pyright", "lua_ls", "tu_servidor" },
@@ -129,7 +145,9 @@ mason_lspconfig.setup({
 ```
 
 #### Cambiar el tema
+
 En `lua/config.lua`:
+
 ```lua
 require('onedark').setup {
     transparent = true  -- Cambiar a false para fondo opaco
@@ -137,7 +155,9 @@ require('onedark').setup {
 ```
 
 #### Agregar un nuevo plugin
+
 En `lua/plugins.lua`:
+
 ```lua
 {
   'usuario/plugin',
@@ -158,13 +178,16 @@ En `lua/plugins.lua`:
 ## 📝 Notas Importantes
 
 ### Plugins Removidos
+
 - `terrortylor/nvim-comment` ❌ (Deprecado) → Reemplazado por `numToStr/Comment.nvim`
 
 ### APIs Actualizadas
+
 - `vim.api.nvim_buf_get_option()` → `vim.bo.filetype`
 - `vim.lsp.get_active_clients()` → `vim.lsp.get_clients()`
 
 ### Mejoras Implementadas
+
 - ✅ Configuración LSP centralizada con Mason
 - ✅ Manejo robusto de errores
 - ✅ Estructura modular y limpia
@@ -175,19 +198,24 @@ En `lua/plugins.lua`:
 ## 🐛 Solución de Problemas
 
 ### Los plugins no se cargan
+
 ```vim
 :Lazy sync
 :Lazy update
 ```
 
 ### LSP no funciona
+
 ```vim
 :Mason
 ```
+
 Instala los servidores necesarios.
 
 ### Errores de formateo
+
 Asegúrate de tener instalados los formateadores:
+
 ```bash
 pip install black isort
 npm install -g prettier
@@ -202,11 +230,15 @@ npm install -g prettier
 
 ## 📄 Licencia
 
-Esta configuración es de código abierto y está disponible bajo la licencia MIT.
+Esta configuración está bajo la licencia MIT. Puedes usarla, modificarla y distribuirla libremente.
+
+Si te sirvió, un ⭐ en GitHub se agradece.
+
+Ver [LICENSE](LICENSE) para más detalles.
 
 ## 👤 Autor
 
-Harold Estrada - [GitHub](https://github.com/HaroldEstn)
+HaroldEstn - [GitHub](https://github.com/HaroldEstn)
 
 ---
 
