@@ -44,6 +44,11 @@ pcall(function()
   require('conform_config')
 end)
 
+-- Git Configuration (gitsigns, lazygit, diffview)
+pcall(function()
+  require('git_config')
+end)
+
 local luasnip = require 'luasnip'
 
 local cmp = require 'cmp'

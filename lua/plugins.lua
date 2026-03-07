@@ -48,5 +48,32 @@ return {
     'stevearc/conform.nvim',
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
+  },
+
+  -- Git plugins
+  {
+    'lewis6991/gitsigns.nvim',
+    event = { "BufReadPre", "BufNewFile" },
+    config = true
+  },
+  {
+    'kdheepak/lazygit.nvim',
+    lazy = true,
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterToggle",
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
+  {
+    'sindrets/diffview.nvim',
+    lazy = true,
+    cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
+    dependencies = 'nvim-lua/plenary.nvim',
   }
 }
