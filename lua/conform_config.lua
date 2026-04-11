@@ -16,15 +16,21 @@ conform.setup({
     markdown = { "prettier" },
     html = { "prettier" },
     css = { "prettier" },
+    -- DevOps & IaC formatters
+    terraform = { "terraform_fmt" },
+    hcl = { "terraform_fmt" },
+    sh = { "shfmt" },
+    bash = { "shfmt" },
+    dockerfile = { "dockfmt" },
   },
   format_on_save = {
     timeout_ms = 500,
-    lsp_fallback = true,
+    lsp_format = "fallback",
   },
 })
 
 -- Keymaps
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<leader>fm', function()
-  conform.format({ async = true, lsp_fallback = true })
+  conform.format({ async = true, lsp_format = "fallback" })
 end, opts)

@@ -75,5 +75,50 @@ return {
     lazy = true,
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
     dependencies = 'nvim-lua/plenary.nvim',
-  }
+  },
+
+  -- DevOps & IaC Plugins (Secure, Local Processing)
+  {
+    "someone-stole-my-name/yaml-companion.nvim",
+    ft = { "yaml" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+  },
+
+  {
+    "ANGkeith/telescope-terraform-doc.nvim",
+    ft = { "terraform", "hcl" },
+    dependencies = { "nvim-telescope/telescope.nvim" },
+  },
+
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    config = function()
+      require("toggleterm").setup({
+        persist_mode = false,
+        shell = vim.o.shell,
+      })
+    end,
+  },
+
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    cmd = { "Trouble", "TroubleToggle" },
+  },
+
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+
+  {
+    "nvim-pack/nvim-spectre",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    cmd = { "Spectre" },
+  },
 }

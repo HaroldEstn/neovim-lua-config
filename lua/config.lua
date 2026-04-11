@@ -49,6 +49,11 @@ pcall(function()
   require('git_config')
 end)
 
+-- DevOps & IaC Configuration
+pcall(function()
+  require('devops_config')
+end)
+
 local luasnip = require 'luasnip'
 
 local cmp = require 'cmp'
@@ -103,7 +108,17 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 pcall(function()
   require'nvim-treesitter.configs'.setup {
     -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-    ensure_installed = { "c", "cpp", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "python", "json", "bash", "javascript", "typescript", "yaml" },
+    ensure_installed = {
+      "c", "cpp", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline",
+      "python", "json", "bash", "javascript", "typescript", "yaml",
+      -- DevOps & IaC parsers
+      "hcl",        -- Terraform/HCL
+      "dockerfile", -- Docker
+      "jsonc",      -- JSON with comments
+      "terraform",  -- Terraform
+      "toml",       -- Configuration files
+      "regex",      -- For pipelines
+    },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,

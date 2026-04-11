@@ -8,12 +8,12 @@
 
 require('gitsigns').setup {
   signs = {
-    add          = { text = '┃', hl = 'GitSignsAdd' },
-    change       = { text = '┃', hl = 'GitSignsChange' },
-    delete       = { text = '_', hl = 'GitSignsDelete' },
-    topdelete    = { text = '‾', hl = 'GitSignsDelete' },
-    changedelete = { text = '~', hl = 'GitSignsChange' },
-    untracked    = { text = '┆', hl = 'GitSignsUntracked' },
+    add          = { text = '┃' },
+    change       = { text = '┃' },
+    delete       = { text = '_' },
+    topdelete    = { text = '‾' },
+    changedelete = { text = '~' },
+    untracked    = { text = '┆' },
   },
   signcolumn = true,
   numhl      = false,
@@ -42,9 +42,6 @@ require('gitsigns').setup {
     relative = 'cursor',
     row = 0,
     col = 1
-  },
-  yadm = {
-    enable = false
   },
 }
 

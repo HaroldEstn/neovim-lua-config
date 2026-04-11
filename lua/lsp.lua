@@ -11,7 +11,7 @@ if not status_ok_mason_lspconfig then
   return
 end
 
--- Setup Mason
+-- Setup Mason with Security Configuration
 pcall(function()
   mason.setup({
     ui = {
@@ -19,15 +19,31 @@ pcall(function()
         package_installed = "✓",
         package_pending = "➜",
         package_uninstalled = "✗"
-      }
-    }
+      },
+      check_outdated_packages_on_open = true,
+      border = "rounded",
+    },
+    -- Only use official registries
+    registries = {
+      "github:mason-org/mason-registry",
+    },
   })
 end)
 
--- Setup Mason-lspconfig
+-- Setup Mason-lspconfig with DevOps/IaC servers
 pcall(function()
   mason_lspconfig.setup({
-    ensure_installed = { "pyright", "lua_ls" },
+    ensure_installed = {
+      "pyright",        -- Python
+      "lua_ls",         -- Lua
+      "yamlls",         -- YAML (GitHub Actions, GitLab CI, CloudFormation)
+      "jsonls",         -- JSON
+      "terraformls",    -- Terraform
+      "bashls",         -- Bash/Shell scripts
+      "dockerls",       -- Dockerfile
+      "docker_compose_language_service", -- Docker Compose
+      "ts_ls",          -- TypeScript/JavaScript (for CDK)
+    },
     automatic_installation = true,
   })
 end)
